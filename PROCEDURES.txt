@@ -1,0 +1,25 @@
+DELIMITER $
+create procedure UsuariosCustomizados()
+Begin
+SELECT Id , Nome AS NomeUsuario  , '08/08/2021' AS DataAtual   FROM aula_procedure_mysql.usuario;
+End
+ $
+CALL UsuariosCustomizados
+
+DELIMITER $
+create procedure ObterUsuariosCustomizados(id int)
+Begin
+SELECT Id , Nome AS NomeUsuario  , '08/08/2021' AS DataAtual   FROM aula_procedure_mysql.usuario
+where Id = id;
+End
+ $
+ 
+ CALL ObterUsuariosCustomizados(1)
+ 
+ DELIMITER $
+create procedure InsereUsuario(nome varchar(50))
+Begin
+insert into aula_procedure_mysql.usuario (Nome) values (nome);
+
+End
+ $
